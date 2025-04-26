@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\CarouselController;
+use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -34,6 +35,12 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
         Route::get('index', function () {
             return view('backend.index');
         })->name('backend.index');
+
+        // logo路由
+        Route::group(['namespace' => 'Logo', 'prefix' => 'logo'], function () {
+            Route::get('', [LogoController::class, 'index'])->name('backend.logo.index');
+            Route::post('api/logo', [LogoController::class, 'update'])->name('backend.logo.update');
+        });
 
         // 輪播圖與logo路由
         Route::group(['namespace' => 'Carousel', 'prefix' => 'carousel'], function () {
