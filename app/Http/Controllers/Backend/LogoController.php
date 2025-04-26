@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\UpdateLogoRequest;
 use App\Services\Backend\UploadImageService;
-use Illuminate\Http\Request;
 
 class LogoController extends Controller
 {
