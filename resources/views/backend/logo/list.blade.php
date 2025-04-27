@@ -63,7 +63,7 @@
                     };
                 },
                 error: function(xhr, status, error) {
-                    let alert_text = "發生不可預期的錯誤";
+                    alert_text = JSON.parse(xhr.responseText).message;
 
                     if (xhr.status == '403') {
                         alert_text = "無此權限";
