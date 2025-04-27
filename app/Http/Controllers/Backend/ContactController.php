@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Backend\FindContactRequest;
+use App\Http\Requests\Backend\FindAllContactRequest;
 use App\Http\Requests\Backend\UpdateContactRequest;
 use App\Models\Contact;
 use App\Services\Backend\ContactService;
@@ -18,7 +18,7 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(FindContactRequest $request)
+    public function index(FindAllContactRequest $request)
     {
         $list = $this->contactService->findAll($request);
         return view('backend.contact.list', ['list' => $list]);

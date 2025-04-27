@@ -18,12 +18,15 @@ return new class extends Migration {
             $table->string('image1')->comment('圖片一');
             $table->string('image1_title')->comment('圖片一標題');
             $table->text('image1_content')->comment('圖片一內容');
+            $table->string('image1_content_image')->nullable()->comment('圖片一內文圖片');
             $table->string('image2')->comment('圖片二');
             $table->string('image2_title')->comment('圖片二標題');
-            $table->text('image2_content')->comment('圖片按內容');
+            $table->text('image2_content')->comment('圖片二內容');
+            $table->string('image2_content_image')->nullable()->comment('圖片二內文圖片');
             $table->string('image3')->comment('圖片三');
             $table->string('image3_title')->comment('圖片三標題');
             $table->text('image3_content')->comment('圖片三內容');
+            $table->string('image3_content_image')->nullable()->comment('圖片三內文圖片');
             $table->timestamps();
         });
     }

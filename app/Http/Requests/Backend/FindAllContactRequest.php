@@ -4,7 +4,7 @@ namespace App\Http\Requests\Backend;
 
 use App\Http\Requests\BaseRequest;
 
-class FindContactRequest extends BaseRequest
+class FindAllContactRequest extends BaseRequest
 {
     /**
      * Get the validation rules that apply to the request.

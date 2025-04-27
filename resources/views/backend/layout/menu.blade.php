@@ -13,6 +13,7 @@
                     <li><a href="{{ route('backend.carousel.index') }}">Banner設定</a></li>
                     <li><a href="{{ route('backend.about.index') }}">About TAID</a></li>
                     <li><a href="{{ route('backend.news.index') }}">最新消息</a></li>
+                    <li><a href="{{ route('backend.about.index') }}">Join us</a></li>
                     <li><a href="{{ route('backend.product.index') }}">服務項目</a></li>
                     <li><a href="{{ route('backend.contact.index') }}">聯絡我們</a></li>
                 </ul>

@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->string('title')->comment('標題');
             $table->text('content')->comment('內容');
             $table->string('image')->nullable();
+            $table->string('content_image')->nullable()->comment('內文圖片');
+            $table->text('content_text')->comment('內文文字');
             $table->timestamps();
         });
     }

@@ -4,7 +4,6 @@ use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\CarouselController;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\NewsController;
-use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
@@ -65,15 +64,6 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::post('api', [NewsController::class, 'store'])->name('backend.news.create');
             Route::patch('api/{news}', [NewsController::class, 'update'])->name('backend.news.update');
             Route::delete('api/{news}', [NewsController::class, 'destroy'])->name('backend.news.delete');
-        });
-
-        // 商品介紹路由
-        Route::group(['namespace' => 'Product', 'prefix' => 'product'], function () {
-            Route::get('', [ProductController::class, 'index'])->name('backend.product.index');
-            Route::get('{product}', [ProductController::class, 'show'])->name('backend.product.detail');
-            Route::post('api', [ProductController::class, 'store'])->name('backend.product.create');
-            Route::patch('api/{product}', [ProductController::class, 'update'])->name('backend.product.update');
-            Route::delete('api/{product}', [ProductController::class, 'destroy'])->name('backend.product.delete');
         });
 
         // 聯絡我們路由
