@@ -53,8 +53,13 @@
                 contentType: false,
                 success: function(response) {
                     if (response.code == '00') {
-                        $("#alert_text").text("修改成功");
-                        $("#alert").modal("show");
+                        Swal.fire({
+                            title: '修改成功！',
+                            icon: 'success',
+                            timer: 3000
+                        }).then((result) => {
+                            location.reload();
+                        });
                     };
                 },
                 error: function(xhr, status, error) {
@@ -63,8 +68,13 @@
                     if (xhr.status == '403') {
                         alert_text = "無此權限";
                     }
-                    $("#alert_text").text(alert_text);
-                    $("#alert").modal("show");
+
+                    Swal.fire({
+                        icon: "error",
+                        title: alert_text,
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
                 }
             });
         }
