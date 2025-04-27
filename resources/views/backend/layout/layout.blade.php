@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/backend/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/backend/component.css') }}">
     <script src="{{ asset('js/accordion.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>

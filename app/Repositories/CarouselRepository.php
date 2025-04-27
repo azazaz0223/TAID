@@ -6,14 +6,14 @@ use App\Models\Carousel;
 
 class CarouselRepository
 {
-    public function findAllForFront()
-    {
-        return Carousel::limit(20)->orderBy('id', 'desc')->get();
-    }
-
     public function findAll()
     {
-        return Carousel::get();
+        return Carousel::orderByDesc('sort')->paginate(6);
+    }
+
+    public function findAllForFrontend()
+    {
+        return Carousel::where('status', 1)->orderByDesc('sort')->limit(10)->get();
     }
 
     public function create($request)
@@ -21,7 +21,7 @@ class CarouselRepository
         try {
             return Carousel::create($request);
         } catch (\Exception $e) {
-            return false;
+            throw $e;
         }
     }
 

@@ -28,12 +28,20 @@ class CarouselService
 
     public function update($id, $request)
     {
-        return $this->carouselRepository->update($id, $request);
+        $data = [
+            'name' => $request['name'],
+            'link' => $request['link'] === '' ? null : $request['link'],
+            'status' => $request['status'],
+            'sort' => $request['sort'],
+        ];
+
+        return $this->carouselRepository->update($id, $data);
     }
 
-    public function updateImageUrl($id, $image)
+    public function updateImageUrl($id, $image_url)
     {
-        return $this->carouselRepository->updateImageUrl($id, $image);
+        $data = ['image' => $image_url];
+        return $this->carouselRepository->update($id, $data);
     }
 
     public function delete($id)

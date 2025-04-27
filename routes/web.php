@@ -42,11 +42,13 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::post('api/logo', [LogoController::class, 'update'])->name('backend.logo.update');
         });
 
-        // 輪播圖與logo路由
+        // 輪播圖 banner 路由
         Route::group(['namespace' => 'Carousel', 'prefix' => 'carousel'], function () {
             Route::get('', [CarouselController::class, 'index'])->name('backend.carousel.index');
-            Route::post('api/logo', [CarouselController::class, 'updateLogo'])->name('backend.carousel.updateLogo');
-            Route::post('api', [CarouselController::class, 'upsert'])->name('backend.carousel.upsert');
+            Route::post('api', [CarouselController::class, 'store'])->name('backend.carousel.store');
+            Route::get('api/{carousel}', [CarouselController::class, 'show'])->name('backend.carousel.show');
+            Route::patch('api/{carousel}', [CarouselController::class, 'update'])->name('backend.carousel.update');
+            Route::delete('api/{carousel}', [CarouselController::class, 'destroy'])->name('backend.carousel.delete');
         });
 
         // 關於我們路由

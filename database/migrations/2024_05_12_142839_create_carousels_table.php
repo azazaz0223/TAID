@@ -12,10 +12,11 @@ return new class extends Migration {
     {
         Schema::create('carousels', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->comment('標題');
-            $table->string('subtitle')->comment('副標題');
-            $table->text('content')->comment('內容');
-            $table->string('image')->nullable();
+            $table->string('name')->comment('名稱');
+            $table->text('link')->nullable()->comment('連結');
+            $table->string('image')->nullable()->comment('圖片');
+            $table->boolean('status')->default(0)->comment('狀態');
+            $table->integer('sort')->default(0)->comment('排序');
             $table->timestamps();
         });
     }
