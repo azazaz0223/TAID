@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\CarouselController;
+use App\Http\Controllers\Backend\JoinController;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -64,6 +65,13 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::post('api', [NewsController::class, 'store'])->name('backend.news.create');
             Route::patch('api/{news}', [NewsController::class, 'update'])->name('backend.news.update');
             Route::delete('api/{news}', [NewsController::class, 'destroy'])->name('backend.news.delete');
+        });
+
+        // join us 路由
+        Route::group(['namespace' => 'Join', 'prefix' => 'join'], function () {
+            Route::get('', [JoinController::class, 'index'])->name('backend.join.index');
+            Route::patch('api/{join}', [JoinController::class, 'update'])->name('backend.join.update');
+            Route::post('api/image/{join}', [JoinController::class, 'UpdateImageInfo'])->name('backend.join.UpdateImageInfo');
         });
 
         // 聯絡我們路由

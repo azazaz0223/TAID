@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('about', function (Blueprint $table) {
+        Schema::create('joins', function (Blueprint $table) {
             $table->id();
             $table->string('zh_title')->comment('中文標題');
             $table->string('en_title')->comment('英文標題');
@@ -36,6 +36,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('about');
+        Schema::dropIfExists('joins');
     }
 };
