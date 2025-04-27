@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 20)->comment('名稱');
-            $table->string('email')->comment('email');
+            $table->string('name')->comment('名稱');
+            $table->string('phone')->comment('聯絡電話');
             $table->text('content')->comment('服務需求');
             $table->string('note')->nullable()->comment('備註');
             $table->tinyInteger('isHandle')->default(0)->comment('狀態');

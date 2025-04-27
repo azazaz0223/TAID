@@ -18,7 +18,7 @@ class FindContactRequest extends BaseRequest
             "ended_date" => "nullable|date",
             "isHandle" => "nullable|numeric",
             "name" => "nullable|string",
-            "email" => "nullable|string",
+            "phone" => "nullable|string",
         ];
     }
 }

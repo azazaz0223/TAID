@@ -22,8 +22,8 @@ class ContactFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(20),
-            'email' => fake()->unique()->safeEmail(),
+            'name' => fake()->name(15),
+            'phone' => fake()->unique()->regexify('09[0-9]{2}[0-9]{3}[0-9]{3}'),
             'content' => fake()->text(),
         ];
     }
