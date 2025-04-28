@@ -23,7 +23,7 @@ class JoinController extends Controller
     public function index()
     {
         $data = $this->joinService->findOne();
-        return view('backend.about.list', ['data' => $data]);
+        return view('backend.join.list', ['data' => $data]);
     }
 
     /**
@@ -56,17 +56,6 @@ class JoinController extends Controller
         }
 
         switch ($request['op']) {
-            case '1':
-                if (isset($image)) {
-                    $data['image1'] = $image;
-                }
-                $data['image1_title'] = $request['title'];
-                $data['image1_content'] = $request['content'];
-                if (isset($content_image)) {
-                    $data['image1_content_image'] = $content_image;
-                }
-                break;
-
             case '2':
                 if (isset($image)) {
                     $data['image2'] = $image;

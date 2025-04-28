@@ -54,7 +54,7 @@
             <input type="hidden" id="image3_content" value="{{ $data ? $data->image3_content : '' }}">
 
             <div class="card col-12 rounded-3 bg-white mb-4">
-                <h2 class="fs-5 p-3 fw-bold border-bottom">關於我們圖片設定</h2>
+                <h2 class="fs-5 p-3 fw-bold border-bottom">About TAID 圖片設定</h2>
                 <div class="card-body border-bottom d-flex justify-content-between gap-3">
                     <div class="row col-12 card-body fs-6 gray_l rounded-3 g-0 gap-2">
                         <label class="mb-2">三張圖片設定

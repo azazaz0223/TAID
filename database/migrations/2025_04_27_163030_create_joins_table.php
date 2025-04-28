@@ -15,10 +15,6 @@ return new class extends Migration {
             $table->string('zh_title')->comment('中文標題');
             $table->string('en_title')->comment('英文標題');
             $table->text('content')->comment('內文描述');
-            $table->string('image1')->comment('圖片一');
-            $table->string('image1_title')->comment('圖片一標題');
-            $table->text('image1_content')->comment('圖片一內容');
-            $table->string('image1_content_image')->nullable()->comment('圖片一內文圖片');
             $table->string('image2')->comment('圖片二');
             $table->string('image2_title')->comment('圖片二標題');
             $table->text('image2_content')->comment('圖片二內容');

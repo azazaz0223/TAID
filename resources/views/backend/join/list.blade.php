@@ -46,25 +46,18 @@
                     class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3">確認送出</a>
             </div>
 
-            <input type="hidden" id="image1_title" value="{{ $data ? $data->image1_title : '' }}">
-            <input type="hidden" id="image1_content" value="{{ $data ? $data->image1_content : '' }}">
             <input type="hidden" id="image2_title" value="{{ $data ? $data->image2_title : '' }}">
             <input type="hidden" id="image2_content" value="{{ $data ? $data->image2_content : '' }}">
             <input type="hidden" id="image3_title" value="{{ $data ? $data->image3_title : '' }}">
             <input type="hidden" id="image3_content" value="{{ $data ? $data->image3_content : '' }}">
 
             <div class="card col-12 rounded-3 bg-white mb-4">
-                <h2 class="fs-5 p-3 fw-bold border-bottom">關於我們圖片設定</h2>
+                <h2 class="fs-5 p-3 fw-bold border-bottom">Join us 圖片設定</h2>
                 <div class="card-body border-bottom d-flex justify-content-between gap-3">
                     <div class="row col-12 card-body fs-6 gray_l rounded-3 g-0 gap-2">
-                        <label class="mb-2">三張圖片設定
+                        <label class="mb-2">二張圖片設定
                             <span class="font12 ps-5 text-black-50 text-danger">點圖可設定詳細內文</span>
                         </label>
-                        <div class="w-25">
-                            <a onclick="showBtn(1)">
-                                <img src="{{ $data ? asset($data->image1) : '' }}">
-                            </a>
-                        </div>
                         <div class="col">
                             <a onclick="showBtn(2)">
                                 <img src="{{ $data ? asset($data->image2) : '' }}">
@@ -86,7 +79,7 @@
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">三張圖片設定</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">二張圖片設定</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
