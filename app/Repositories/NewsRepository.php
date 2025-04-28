@@ -21,7 +21,7 @@ class NewsRepository
         try {
             return News::create($request);
         } catch (\Exception $e) {
-            return $e;
+            throw $e;
         }
     }
 

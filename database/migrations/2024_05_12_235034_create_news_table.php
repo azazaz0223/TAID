@@ -12,11 +12,13 @@ return new class extends Migration {
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->comment('標題');
-            $table->text('content')->comment('內容');
+            $table->string('title')->comment('大標');
+            $table->text('subtitle')->comment('小標');
             $table->string('image')->nullable();
             $table->string('content_image')->nullable()->comment('內文圖片');
             $table->text('content_text')->comment('內文文字');
+            $table->boolean('status')->default(0)->comment('狀態');
+            $table->integer('sort')->default(0)->comment('排序');
             $table->timestamps();
         });
     }

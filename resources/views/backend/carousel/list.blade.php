@@ -121,7 +121,14 @@
             if (element.files && element.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    $("#preview_image").attr('src', e.target.result);
+                    var img = $("#preview_image");
+                    img.attr('src', e.target.result);
+                    img.css({
+                        "height": "800px", // 固定高度
+                        "width": "auto", // 寬度自動
+                        "object-fit": "contain", // 縮放但不變形
+                        "display": "block" // 避免下方有空白
+                    });
                 }
                 reader.readAsDataURL(element.files[0]);
                 selectedFile = element.files[0];

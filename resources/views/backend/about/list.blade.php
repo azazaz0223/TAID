@@ -19,7 +19,7 @@
                         <div class="dive_sub">英文小標</div>
                     </div>
                     <div class="w-auto input-group me-2">
-                        <span class="input-group-text bg-white">ABOUT</span>
+                        <span class="input-group-text bg-white">About</span>
                         <input type="text" class="form-control" id="en_title"
                             value="{{ $data ? $data->en_title : '' }}">
                     </div>

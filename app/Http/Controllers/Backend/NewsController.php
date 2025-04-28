@@ -41,17 +41,18 @@ class NewsController extends Controller
     {
         $data = [
             "title" => $request['title'],
-            "content" => $request['content'],
-            "content_text" => $request['content_text']
+            "subtitle" => $request['subtitle'],
+            "content_text" => $request['content_text'],
+            "status" => $request['status'],
+            "sort" => $request['sort'] ?? 1
         ];
 
         $news = $this->newsService->create($data);
 
         $image_url = $this->uploadImageService->uploadImage($news->id, 'news', $request->file('image'));
-        $this->newsService->update($news->id, ["image" => $image_url]);
-
         $content_image_url = $this->uploadImageService->uploadImage($news->id . "content", 'news', $request->file('content_image'));
-        $this->newsService->update($news->id, ["content_image" => $content_image_url]);
+
+        $this->newsService->update($news->id, ["image" => $image_url, "content_image" => $content_image_url]);
 
         return $this->successResponse(null, 200);
     }
@@ -63,8 +64,10 @@ class NewsController extends Controller
     {
         $data = [
             "title" => $request['title'],
-            "content" => $request['content'],
-            "content_text" => $request['content_text']
+            "subtitle" => $request['subtitle'],
+            "content_text" => $request['content_text'],
+            "status" => $request['status'],
+            "sort" => $request['sort'] ?? 1
         ];
 
         $this->newsService->update($news->id, $data);
