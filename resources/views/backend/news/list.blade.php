@@ -156,9 +156,9 @@
                 </div>
             </form>
             <div class="card-body">
-                <button type="button" class="btn btn-danger border-0 rounded-3 float-end shadow-sm px-3"
+                <button type="button" class="btn btn-danger border-0 rounded-3 float-end shadow-sm px-3 me-2"
                     onclick="clearBtn()">清除</button>
-                <button type="button" class="btn btn-primary border-0 rounded-3 float-end shadow-sm px-3"
+                <button type="button" class="btn btn-primary border-0 rounded-3 float-end shadow-sm px-3 me-2"
                     onclick="createBtn()">新增</button>
             </div>
         </div>
