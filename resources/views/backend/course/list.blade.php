@@ -42,7 +42,7 @@
                                 <td>{{ $course->sort }}</td>
                                 <td>
                                     <button type="button" class="btn btn-light rounded-3 shadow-sm"
-                                        onclick="javascript:location.href='{{ route('backend.news.detail', $course->id) }}'"><i
+                                        onclick="javascript:location.href='{{ route('backend.course.detail', $course->id) }}'"><i
                                             class="far fa-edit"></i></button>
                                     <button type="button" onclick="deleteConfirmBtn({{ $course->id }})"
                                         class="btn btn-light rounded-3 shadow-sm"><i class="fas fa-times"></i></button>
@@ -68,7 +68,7 @@
                             <div class="dive_sub">課程標題</div>
                         </div>
                         <div class="col">
-                            <input type="text" name="title" class="form-control" placeholder="消息大標">
+                            <input type="text" name="title" class="form-control" placeholder="請輸入課程標題">
                         </div>
                     </div>
                     <div class="d-flex justify-content-start gap-3 mb-3">
@@ -76,7 +76,7 @@
                             <div class="dive_sub">課程副標</div>
                         </div>
                         <div class="col">
-                            <textarea name="subtitle" class="form-control search_input easein mb-0" rows="2" placeholder="消息副標"></textarea>
+                            <textarea name="subtitle" class="form-control search_input easein mb-0" rows="2" placeholder="請輸入課程副標"></textarea>
                         </div>
                     </div>
 
@@ -225,43 +225,52 @@
         }
 
         function deleteConfirmBtn(id) {
-            html = "<button class='dialogue-btn shadow-sm btn btn-primary' onclick='deleteSubmit(" + id + ")'>確認</button>";
-            html += "<button class='dialogue-btn shadow-sm btn btn-primary' data-bs-dismiss='modal'>關閉</button>";
-            $("#alert-body").hide();
-            $("#alertBtn").html(html);
-            $("#alert").modal("show");
-        }
-
-        function deleteSubmit(id) {
             const csrfToken = $('meta[name="csrf-token"]').attr('content');
-            url = "{{ route('backend.news.delete', ':id') }}";
-            url = url.replace(':id', id);
-            $.ajax({
-                url: url,
-                type: "DELETE",
-                headers: {
-                    "X-CSRF-TOKEN": csrfToken
-                },
-                success: function(response) {
-                    if (response.code == '00') {
-                        html =
-                            "<button type='button' class='dialogue-btn shadow-sm btn btn-primary' data-bs-dismiss='modal' onclick='location.reload()'>確認重整</button>";
-                        html +=
-                            "<button type='button' class='dialogue-btn shadow-sm btn btn-primary' data-bs-dismiss='modal'>關閉</button>";
-                        $("#alertBtn").html(html);
-                        $("#alert-body").show();
-                        $("#alert_text").text("刪除成功!");
-                        $("#alert").modal("show");
-                    }
-                },
-                error: function(xhr, status, error) {
-                    let alert_text = "發生不可預期的錯誤";
+            Swal.fire({
+                title: '確認要刪除嗎？',
+                text: '刪除後無法撤銷！',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '是的，刪除！',
+                cancelButtonText: '取消',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    url = "{{ route('backend.news.delete', ':id') }}";
+                    url = url.replace(':id', id);
+                    $.ajax({
+                        url: url,
+                        type: "DELETE",
+                        headers: {
+                            "X-CSRF-TOKEN": csrfToken
+                        },
+                        success: function(response) {
+                            if (response.code == '00') {
+                                Swal.fire({
+                                    title: '刪除成功！',
+                                    icon: 'success',
+                                    timer: 3000
+                                }).then((result) => {
+                                    location.reload();
+                                });
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            alert_text = JSON.parse(xhr.responseText).message;
 
-                    if (xhr.status == '403') {
-                        alert_text = "無此權限";
-                    }
-                    $("#alert_text").text(alert_text);
-                    $("#alert").modal("show");
+                            if (xhr.status == '403') {
+                                alert_text = "無此權限";
+                            }
+
+                            Swal.fire({
+                                icon: "error",
+                                title: alert_text,
+                                showConfirmButton: false,
+                                timer: 3000
+                            });
+                        }
+                    });
                 }
             });
         }

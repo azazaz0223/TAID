@@ -18,7 +18,8 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/icomoon-social.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome/css/all.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <script src="{{ asset('js/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
 
@@ -51,10 +52,11 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a data-easing="linear" href="#About">關於我們</a></li>
+                    <li><a data-easing="linear" href="#About">關於學會</a></li>
                     <li><a data-easing="linear" href="#News">最新消息</a></li>
-                    <li><a data-easing="linear" href="#Product">服務項目</a></li>
-                    <li><a data-easing="linear" href="#Contact">聯絡我們</a></li>
+                    <li><a data-easing="linear" href="#News">加入學會</a></li>
+                    <li><a data-easing="linear" href="#Product">課程資訊</a></li>
+                    <li><a data-easing="linear" href="#Contact">聯絡學會</a></li>
                     <li class="active"><a class="circle" data-easing="linear" href="#"><i
                                 class="icon-home"></i></a>
                     </li>
@@ -76,21 +78,14 @@
             <div class="carousel-inner">
                 @foreach ($data['carousels'] as $key => $carousel)
                     <div class="item @if ($key == 0) active @endif"
-                        style="background-image: url({{ asset($carousel->image) }})">
+                        style="background-image: url({{ asset($carousel->image) }})"
+                        onclick="window.open('{{ $carousel->link }}')">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="carousel-content centered">
                                         <h2 class="animation animated-item-1">{{ $carousel->title }}</h2>
                                         <p class="animation animated-item-2">{{ $carousel->subtitle }}</p>
-                                        <label class="btn btn-md animation animated-item-3"
-                                            onclick="carouselBtn({{ $carousel->id }})">More</label>
-                                        <input type="hidden" id="carousel_title{{ $carousel->id }}"
-                                            value="{{ $carousel->title }}">
-                                        <input type="hidden" id="carousel_content{{ $carousel->id }}"
-                                            value="{!! nl2br(e($carousel->content_text)) !!}">
-                                        <input type="hidden" id="carousel_image{{ $carousel->id }}"
-                                            value="{{ asset($carousel->content_image) }}">
                                     </div>
                                 </div>
                             </div>
@@ -112,14 +107,14 @@
 
     <div id="About"></div>
     {{-- About Start --}}
-    @foreach ($data['about'] as $about)
-        <section class="trust">
-            <div class="container">
-                <div class="row">
+    <section class="trust">
+        <div class="container">
+            <div class="row">
+                @foreach ($data['about'] as $about)
                     <div class="offset-xl-1 col-xl-6">
-                        <div class="title">
-                            <h6 class="title-primary">about {{ $about->en_title }}</h6>
-                            <h1>{{ $about->zh_title }}</h1>
+                        <div class="title" data-aos-delay="200" data-aos-duration="800">
+                            <h6 class="title-primary">ABOUT {{ $about->en_title }}</h6>
+                            <h1 class="title-blue">{{ $about->zh_title }}</h1>
                         </div>
                         <p>{{ $about->content }}</p>
                     </div>
@@ -141,19 +136,19 @@
                             </label>
                         </div>
                     </div>
-                </div>
+                    <input type="hidden" id="about_image1_image" value="{{ asset($about->image1_content_image) }}">
+                    <input type="hidden" id="about_image1_title" value="{{ $about->image1_title }}">
+                    <input type="hidden" id="about_image1_content" value="{!! nl2br(e($about->image1_content)) !!}">
+                    <input type="hidden" id="about_image2_image" value="{{ asset($about->image2_content_image) }}">
+                    <input type="hidden" id="about_image2_title" value="{{ $about->image2_title }}">
+                    <input type="hidden" id="about_image2_content" value="{!! nl2br(e($about->image2_content)) !!}">
+                    <input type="hidden" id="about_image3_image" value="{{ asset($about->image3_content_image) }}">
+                    <input type="hidden" id="about_image3_title" value="{{ $about->image3_title }}">
+                    <input type="hidden" id="about_image3_content" value="{!! nl2br(e($about->image3_content)) !!}">
+                @endforeach
             </div>
-        </section>
-        <input type="hidden" id="about_image1_image" value="{{ asset($about->image1_content_image) }}">
-        <input type="hidden" id="about_image1_title" value="{{ $about->image1_title }}">
-        <input type="hidden" id="about_image1_content" value="{!! nl2br(e($about->image1_content)) !!}">
-        <input type="hidden" id="about_image2_image" value="{{ asset($about->image2_content_image) }}">
-        <input type="hidden" id="about_image2_title" value="{{ $about->image2_title }}">
-        <input type="hidden" id="about_image2_content" value="{!! nl2br(e($about->image2_content)) !!}">
-        <input type="hidden" id="about_image3_image" value="{{ asset($about->image3_content_image) }}">
-        <input type="hidden" id="about_image3_title" value="{{ $about->image3_title }}">
-        <input type="hidden" id="about_image3_content" value="{!! nl2br(e($about->image3_content)) !!}">
-    @endforeach
+        </div>
+    </section>
     {{-- About End --}}
 
     <div id="News"></div>
@@ -195,34 +190,15 @@
             <div class="row">
                 <div class="col-lg-5">
                     <h2>CONTACT US</h2>
-                    <p class="light">歡迎您透過本信件表單詢問服務需求問題</p>
-                    <p>
-                        <span class="email">
-                            <i class="fa fa-envelope"></i>
-                        </span>
-                        <b><a href="mailto:r5201004@icloud.com">r5201004@icloud.com</a></b>
-                    </p>
-                    <p>
-                        <span class="phone">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </span>
-                        <b><a href="https://maps.app.goo.gl/KviWLTSnwgsnhsoB7" target="_blank">高雄市楠梓區青埔街208號2樓</a></b>
-                    </p>
-
-                    <ul class="navbar-nav float-left social-links footer-social">
-                        <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://www.facebook.com/lovevanessaya"><i
-                                    class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://line.me/R/ti/p/@zcf5783w"><i
-                                    class="fab fa-line"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://www.instagram.com/huani.nail/"><i
-                                    class="fab fa-instagram"></i></a>
-                        </li>
-                    </ul>
+                    <p class="light">若您有任何需求，歡迎聯絡學會填寫表單！</p>
+                    <p><span class="phone"><i class="fas fa-user"></i></span><b>鄭小姐</b></p>
+                    <p><span class="email"><i class="fa fa-envelope"></i></span><b><a
+                                href="mailto:d.labtaipei@gmail.com">d.labtaipei@gmail.com</a></b></p>
+                    <p><span class="phone"><i class="fa fa-phone"></i></span><b><a href="tel:+886-2-27003300">02
+                                27003300</a></b></p>
+                    <p><span class="phone"><i class="fas fa-map-marker-alt"></i></span><b><a
+                                href="https://maps.app.goo.gl/E16g1bBpwrk4gqFp6"
+                                target="_blank">台北市大安區敦化南路二段86號2樓</a></b></p>
                 </div>
 
                 <div class="col-lg-7">
@@ -235,7 +211,7 @@
                                 <input type="text" class="form-control" id="contactName" placeholder="姓名">
                             </div>
                             <div class="col-md-6 col-xs-12 p-2">
-                                <input type="text" class="form-control" id="contactEmail" placeholder="Email">
+                                <input type="text" class="form-control" id="contactPhone" placeholder="聯絡電話">
                             </div>
 
                             <tr>
@@ -300,17 +276,6 @@
     <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
 
     <script>
-        function carouselBtn(id) {
-            $("#title").text($("#carousel_title" + id).val());
-            $("#image").prop("src", $("#carousel_image" + id).val());
-
-            text = $("#carousel_content" + id).val();
-            formattedText = text.replace(/\n/g, '<br />');
-            $("#content").html(formattedText);
-
-            $("#modal").prop("checked", true);
-        }
-
         function aboutBtn(id) {
             $("#title").text($("#about_image" + id + "_title").val());
             $("#image").prop("src", $("#about_image" + id + "_image").val());
@@ -337,7 +302,7 @@
             const csrfToken = $('meta[name="csrf-token"]').attr('content');
             const data = {
                 name: $("#contactName").val(),
-                email: $("#contactEmail").val(),
+                phone: $("#contactPhone").val(),
                 content: $("#contactContent").val()
             }
 
@@ -350,13 +315,23 @@
                 data: data,
                 success: function(response) {
                     if (response.code == '00') {
-                        alert("成功!!");
-                        location.reload();
+                        Swal.fire({
+                            title: '成功！',
+                            icon: 'success',
+                            timer: 3000
+                        }).then((result) => {
+                            location.reload();
+                        });
                     };
                 },
                 error: function(xhr, status, error) {
                     let alert_text = "發生不可預期的錯誤";
-                    alert(alert_text);
+
+                    Swal.fire({
+                        icon: "error",
+                        title: alert_text,
+                        timer: 3000
+                    });
                 }
             });
         }

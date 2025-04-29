@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Staff;
-use App\Services\Backend\StaffService;
 use App\Http\Requests\Backend\UpdateStaffPasswordRequest;
+use App\Models\Staff;
+use App\Services\StaffService;
 
 class StaffController extends Controller
 {

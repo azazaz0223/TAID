@@ -13,7 +13,7 @@ class NewsRepository
 
     public function findAll()
     {
-        return News::orderBy('id', 'desc')->paginate(20);
+        return News::orderBy('id', 'desc')->paginate(6);
     }
 
     public function create($request)

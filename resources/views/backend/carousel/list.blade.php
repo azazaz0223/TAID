@@ -8,14 +8,17 @@
             <li class="breadcrumb-item col">輪播banner</li>
         </ol>
     </nav>
+
     <div class="container-fluid p-3 m-1">
         <div class="card col-12 rounded-3 bg-white mb-4">
             <h2 class="fs-5 p-3 fw-bold border-bottom">
                 banner列表
-                <button type="button" class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm"
-                    onclick="createBtn()">
-                    <i class="fas fa-plus"></i>
-                </button>
+                @if ($carousels['total'] < 10)
+                    <button type="button" class="w-auto btn btn-danger btn-sm rounded-pill float-end shadow-sm lh-sm"
+                        onclick="createBtn()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                @endif
             </h2>
 
             <div class="card-body toScroll text-nowrap">

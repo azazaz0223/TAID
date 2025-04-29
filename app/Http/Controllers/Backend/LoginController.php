@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\BackendLoginRequest;
-use App\Services\Backend\LoginService;
+use App\Services\LoginService;
 
 class LoginController extends Controller
 {

@@ -192,7 +192,7 @@
 
                     Swal.fire({
                         icon: "error",
-                        title: xhr.data.message,
+                        title: alert_text,
                         timer: 3000
                     });
                 }

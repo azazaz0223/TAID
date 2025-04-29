@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\CreateNewsRequest;
 use App\Http\Requests\Backend\UpdateNewsRequest;
 use App\Models\News;
-use App\Services\Backend\NewsService;
-use App\Services\Backend\UploadImageService;
+use App\Services\NewsService;
+use App\Services\UploadImageService;
 
 class NewsController extends Controller
 {

@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\UpdateJoinRequest;
 use App\Http\Requests\Backend\UploadJoinImageRequest;
 use App\Models\Join;
-use App\Services\Backend\JoinService;
-use App\Services\Backend\UploadImageService;
+use App\Services\JoinService;
+use App\Services\UploadImageService;
 
 class JoinController extends Controller
 {

@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\UpdateAboutRequest;
 use App\Http\Requests\Backend\UploadAboutImageRequest;
 use App\Models\About;
-use App\Services\Backend\AboutService;
-use App\Services\Backend\UploadImageService;
+use App\Services\AboutService;
+use App\Services\UploadImageService;
 
 class AboutController extends Controller
 {

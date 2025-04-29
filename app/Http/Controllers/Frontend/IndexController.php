@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\CreateContactRequest;
-use App\Services\Backend\AboutService;
-use App\Services\Backend\CarouselService;
-use App\Services\Backend\ContactService;
-use App\Services\Backend\NewsService;
+use App\Services\AboutService;
+use App\Services\CarouselService;
+use App\Services\ContactService;
+use App\Services\NewsService;
 
 class IndexController extends Controller
 {

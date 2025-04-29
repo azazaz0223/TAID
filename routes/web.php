@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\CarouselController;
+use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Backend\JoinController;
 use App\Http\Controllers\Backend\LogoController;
 use App\Http\Controllers\Backend\NewsController;
@@ -72,6 +73,15 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'backend'], function () {
             Route::get('', [JoinController::class, 'index'])->name('backend.join.index');
             Route::patch('api/{join}', [JoinController::class, 'update'])->name('backend.join.update');
             Route::post('api/image/{join}', [JoinController::class, 'UpdateImageInfo'])->name('backend.join.UpdateImageInfo');
+        });
+
+        // 課程資訊路由
+        Route::group(['namespace' => 'Course', 'prefix' => 'course'], function () {
+            Route::get('', [CourseController::class, 'index'])->name('backend.course.index');
+            Route::get('{course}', [CourseController::class, 'show'])->name('backend.course.detail');
+            Route::post('api', [CourseController::class, 'store'])->name('backend.course.create');
+            Route::patch('api/{course}', [CourseController::class, 'update'])->name('backend.course.update');
+            Route::delete('api/{course}', [CourseController::class, 'destroy'])->name('backend.course.delete');
         });
 
         // 聯絡我們路由

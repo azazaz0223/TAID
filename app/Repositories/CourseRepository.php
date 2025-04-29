@@ -13,7 +13,7 @@ class CourseRepository
 
     public function findAll()
     {
-        return Course::orderBy('id', 'desc')->paginate(20);
+        return Course::orderBy('id', 'desc')->paginate(6);
     }
 
     public function create($request)

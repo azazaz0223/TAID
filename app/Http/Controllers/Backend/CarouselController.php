@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\CreateCarouselRequest;
 use App\Http\Requests\Backend\UpdateCarouselRequest;
 use App\Models\Carousel;
-use App\Services\Backend\CarouselService;
-use App\Services\Backend\UploadImageService;
+use App\Services\CarouselService;
+use App\Services\UploadImageService;
 
 class CarouselController extends Controller
 {

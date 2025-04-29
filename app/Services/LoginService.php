@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Services\Backend;
-
-use Illuminate\Support\Facades\Session;
+namespace App\Services;
 
 class LoginService
 {

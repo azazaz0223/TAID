@@ -20,7 +20,7 @@
                             <div class="dive_sub">消息大標</div>
                         </div>
                         <div class="col">
-                            <input type="text" name="title" class="form-control" placeholder="請輸入標題"
+                            <input type="text" name="title" class="form-control" placeholder="請輸入消息大標"
                                 value="{{ $news->title }}">
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                             <div class="dive_sub">消息小標</div>
                         </div>
                         <div class="col">
-                            <textarea name="subtitle" class="form-control search_input easein mb-0" rows="2" placeholder="請輸入內文描述">{{ $news->subtitle }}</textarea>
+                            <textarea name="subtitle" class="form-control search_input easein mb-0" rows="2" placeholder="請輸入消息副標">{{ $news->subtitle }}</textarea>
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@
 
                 <div class="card-body border-bottom d-flex justify-content-between gap-3">
                     <div class="col-4 card-body fs-6 gray_l rounded-3">
-                        <label class="mb-2">上傳項目內容圖</label>
+                        <label class="mb-2">上傳最新消息內容圖</label>
                         <div class="c-mainCard__item">
                             <div class="l-upload l-upload--notSpace">
                                 <div class="card-body fs-6 gray_l rounded-3">
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="col-8 card-body fs-6 gray_l rounded-3">
-                        <label class="mb-2">預覽項目內容圖</label>
+                        <label class="mb-2">預覽最新消息內容圖</label>
                         <div class="p-0">
                             <img id="newsContentImg" class="mt-3" src="{{ asset($news->content_image) }}">
                         </div>

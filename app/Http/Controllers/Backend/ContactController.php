@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\FindAllContactRequest;
 use App\Http\Requests\Backend\UpdateContactRequest;
 use App\Models\Contact;
-use App\Services\Backend\ContactService;
+use App\Services\ContactService;
 
 class ContactController extends Controller
 {

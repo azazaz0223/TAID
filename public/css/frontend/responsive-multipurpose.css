@@ -162,6 +162,7 @@
   }
   .title h1 {
     font-size: 48px;
+    font-size: 45px;
   }
 }
 
@@ -173,7 +174,7 @@
     width: auto;
   }
   .title h1 {
-    font-size: 58px;
+    /*font-size: 58px;*/
   }
   .trust .title {
     padding-top: 70px;

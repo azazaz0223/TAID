@@ -15,7 +15,7 @@ class CreateContactRequest extends BaseRequest
     {
         return [
             "name" => "required|string",
-            "email" => "required|string",
+            "phone" => "required|string",
             "content" => "required|string",
         ];
     }

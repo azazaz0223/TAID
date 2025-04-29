@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\CreateCourseRequest;
 use App\Http\Requests\Backend\UpdateCourseRequest;
 use App\Models\Course;
-use App\Services\Backend\CourseService;
-use App\Services\Backend\UploadImageService;
+use App\Services\CourseService;
+use App\Services\UploadImageService;
 
 class CourseController extends Controller
 {

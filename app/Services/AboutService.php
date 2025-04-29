@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Backend;
+namespace App\Services;
 
 use App\Repositories\AboutRepository;
 
