@@ -14,6 +14,7 @@
                     <li><a href="{{ route('backend.about.index') }}">About TAID</a></li>
                     <li><a href="{{ route('backend.news.index') }}">最新消息</a></li>
                     <li><a href="{{ route('backend.join.index') }}">Join us</a></li>
+                    <li><a href="{{ route('backend.course.index') }}">課程資訊</a></li>
                     <li><a href="{{ route('backend.contact.index') }}">聯絡我們</a></li>
                 </ul>
             </li>
