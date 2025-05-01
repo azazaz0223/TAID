@@ -54,12 +54,11 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a data-easing="linear" href="#About">關於學會</a></li>
                     <li><a data-easing="linear" href="#News">最新消息</a></li>
-                    <li><a data-easing="linear" href="#News">加入學會</a></li>
-                    <li><a data-easing="linear" href="#Product">課程資訊</a></li>
+                    <li><a data-easing="linear" href="#Join">加入學會</a></li>
+                    <li><a data-easing="linear" href="#Course">課程資訊</a></li>
                     <li><a data-easing="linear" href="#Contact">聯絡學會</a></li>
                     <li class="active"><a class="circle" data-easing="linear" href="#"><i
-                                class="icon-home"></i></a>
-                    </li>
+                                class="icon-home"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -111,8 +110,8 @@
         <div class="container">
             <div class="row">
                 @foreach ($data['about'] as $about)
-                    <div class="offset-xl-1 col-xl-6">
-                        <div class="title" data-aos-delay="200" data-aos-duration="800">
+                    <div class="offset-xl-1 col-xl-6" data-aos-delay="200" data-aos-duration="800">
+                        <div class="title">
                             <h6 class="title-primary">ABOUT {{ $about->en_title }}</h6>
                             <h1 class="title-blue">{{ $about->zh_title }}</h1>
                         </div>
@@ -165,7 +164,7 @@
                                     <label class=" finger" for="modal-news">
                                         <h5 class="ellipsis1">{{ $news->title }}</h5>
                                     </label>
-                                    <p class="card-text ellipsis3">{{ $news->content }}</p>
+                                    <p class="card-text ellipsis3">{{ $news->subtitle }}</p>
                                     <label class="post-btn mgt5 finger"><i class=" fa fa-arrow-right"></i></label>
                                     <input type="hidden" id="news_title{{ $news->id }}"
                                         value="{{ $news->title }}">
@@ -182,6 +181,70 @@
         </div>
     </div>
     {{-- News End --}}
+
+    <div id="Join"></div>
+    {{-- JOIN US Start --}}
+    <section class="featured">
+        <div class="container">
+            <div class="row">
+                @foreach ($data['joins'] as $join)
+                    <div class="col-md-5 col-lg-6" data-aos="fade-right" data-aos-delay="400"
+                        data-aos-duration="800">
+                        <div class="title">
+                            <h6 class="title-primary">JOIN {{ $join->en_title }}</h6>
+                            <h1 class="title-blue">{{ $join->zh_title }}</h1>
+                        </div>
+                        <p>{{ $join->content }}</p>
+                    </div>
+                    <div class="col-md-7 col-lg-6" data-aos="fade-left" data-aos-delay="400"
+                        data-aos-duration="800">
+                        <div class="featured-img">
+                            <img class="featured-big" onclick="joinBtn(2)" src="{{ asset($join->image2) }}">
+                            <img class="featured-small" onclick="joinBtn(3)" src="{{ asset($join->image3) }}">
+                        </div>
+                    </div>
+                    <input type="hidden" id="join_image2_image" value="{{ asset($join->image2_content_image) }}">
+                    <input type="hidden" id="join_image2_title" value="{{ $join->image2_title }}">
+                    <input type="hidden" id="join_image2_content" value="{!! nl2br(e($join->image2_content)) !!}">
+                    <input type="hidden" id="join_image3_image" value="{{ asset($join->image3_content_image) }}">
+                    <input type="hidden" id="join_image3_title" value="{{ $join->image3_title }}">
+                    <input type="hidden" id="join_image3_content" value="{!! nl2br(e($join->image3_content)) !!}">
+                @endforeach
+            </div>
+        </div>
+    </section>
+    {{-- JOIN US End --}}
+
+    <div id="Course"></div>
+    {{-- Course Start --}}
+    <div class="section section-white container-fluid fh5co-news" style="background-color: #e9e0d7;">
+        <div class="container">
+            <h2>課程資訊 WORKSHOP</h2>
+            <div class="row">
+                <ul class="grid cs-style-3">
+                    @foreach ($data['courses'] as $course)
+                        <div class="col-xl-4 col-md-6 col-xs-6">
+                            <figure>
+                                <img src="{{ asset($course->image) }}">
+                                <figcaption>
+                                    <h3 class="ellipsis1 col-10">{{ $course->title }}</h3>
+                                    <span>{{ $course->subtitle }}</span>
+                                    <label onclick="courseBtn('{{ $course->id }}')">MORE</label>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <input type="hidden" id="course_title{{ $course->id }}" value="{{ $course->title }}">
+                        <input type="hidden" id="course_content{{ $course->id }}"
+                            value="{!! nl2br(e($course->content_text)) !!}">
+                        <input type="hidden" id="course_image{{ $course->id }}"
+                            value="{{ asset($course->content_image) }}">
+                    @endforeach
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    {{-- Course End --}}
 
     <div id="Contact"></div>
     {{-- Contact Start --}}
@@ -235,7 +298,7 @@
     {{-- Footer Start --}}
     <div class="container-fluid copy">
         <div class="col-lg-12">
-            <p>花妮工作室版權所有 ©2024.</p>
+            <p>台灣美學重建植牙醫學會版權所有 ©2025</p>
         </div>
     </div>
     <div class="footer"></div>
@@ -292,6 +355,28 @@
             $("#image").prop("src", $("#news_image" + id).val());
 
             text = $("#news_content" + id).val();
+            formattedText = text.replace(/\n/g, '<br />');
+            $("#content").html(formattedText);
+
+            $("#modal").prop("checked", true);
+        }
+
+        function joinBtn(id) {
+            $("#title").text($("#join_image" + id + "_title").val());
+            $("#image").prop("src", $("#join_image" + id + "_image").val());
+
+            text = $("#join_image" + id + "_content").val();
+            formattedText = text.replace(/\n/g, '<br />');
+            $("#content").html(formattedText);
+
+            $("#modal").prop("checked", true);
+        }
+
+        function courseBtn(id) {
+            $("#title").text($("#course_title" + id).val());
+            $("#image").prop("src", $("#course_image" + id).val());
+
+            text = $("#course_content" + id).val();
             formattedText = text.replace(/\n/g, '<br />');
             $("#content").html(formattedText);
 

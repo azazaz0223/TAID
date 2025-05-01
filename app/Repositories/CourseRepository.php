@@ -8,7 +8,7 @@ class CourseRepository
 {
     public function findAllForFront()
     {
-        return Course::limit(20)->orderBy('id', 'desc')->get();
+        return Course::where('status', 1)->limit(10)->orderBy('sort', 'desc')->get();
     }
 
     public function findAll()
