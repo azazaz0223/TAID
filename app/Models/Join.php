@@ -13,13 +13,7 @@ class Join extends Model
         'zh_title',
         'en_title',
         'content',
+        'image1',
         'image2',
-        'image2_title',
-        'image2_content',
-        'image2_content_image',
-        'image3',
-        'image3_title',
-        'image3_content',
-        'image3_content_image',
     ];
 }

@@ -7,6 +7,8 @@
 /public/images/carousel/*.jpg
 /public/images/news/*.jpg
 /public/images/product/*.jpg
+/public/images/course/*.jpg
+/public/images/join/*.jpg
 /storage/*.key
 /vendor
 .env

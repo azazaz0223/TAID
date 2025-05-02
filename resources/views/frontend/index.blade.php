@@ -35,6 +35,7 @@
 
     {{-- Responsive Stylesheet multipurpose --}}
     <link rel="stylesheet" href="{{ asset('css/frontend/responsive-multipurpose.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -192,23 +193,17 @@
                         data-aos-duration="800">
                         <div class="title">
                             <h6 class="title-primary">JOIN {{ $join->en_title }}</h6>
-                            <h1 class="title-blue">{{ $join->zh_title }}</h1>
+                            <h1 class="title-blue">{!! nl2br($join->zh_title) !!}</h1>
                         </div>
                         <p>{{ $join->content }}</p>
                     </div>
                     <div class="col-md-7 col-lg-6" data-aos="fade-left" data-aos-delay="400"
                         data-aos-duration="800">
                         <div class="featured-img">
-                            <img class="featured-big" onclick="joinBtn(2)" src="{{ asset($join->image2) }}">
-                            <img class="featured-small" onclick="joinBtn(3)" src="{{ asset($join->image3) }}">
+                            <img class="featured-big" src="{{ asset($join->image1) }}">
+                            <img class="featured-small" src="{{ asset($join->image2) }}">
                         </div>
                     </div>
-                    <input type="hidden" id="join_image2_image" value="{{ asset($join->image2_content_image) }}">
-                    <input type="hidden" id="join_image2_title" value="{{ $join->image2_title }}">
-                    <input type="hidden" id="join_image2_content" value="{!! nl2br(e($join->image2_content)) !!}">
-                    <input type="hidden" id="join_image3_image" value="{{ asset($join->image3_content_image) }}">
-                    <input type="hidden" id="join_image3_title" value="{{ $join->image3_title }}">
-                    <input type="hidden" id="join_image3_content" value="{!! nl2br(e($join->image3_content)) !!}">
                 @endforeach
             </div>
         </div>
@@ -355,17 +350,6 @@
             $("#image").prop("src", $("#news_image" + id).val());
 
             text = $("#news_content" + id).val();
-            formattedText = text.replace(/\n/g, '<br />');
-            $("#content").html(formattedText);
-
-            $("#modal").prop("checked", true);
-        }
-
-        function joinBtn(id) {
-            $("#title").text($("#join_image" + id + "_title").val());
-            $("#image").prop("src", $("#join_image" + id + "_image").val());
-
-            text = $("#join_image" + id + "_content").val();
             formattedText = text.replace(/\n/g, '<br />');
             $("#content").html(formattedText);
 

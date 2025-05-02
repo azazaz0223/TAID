@@ -19,7 +19,7 @@ class CreateCarouselRequest extends BaseRequest
             'link' => 'nullable|string',
             'status' => 'required|boolean',
             'sort' => 'nullable|integer|min:0',
-            'image' => 'required|image|mimes:jpeg,png,jpg|dimensions:width=1920,height=700',
+            'image' => 'required|image|mimes:jpeg,png,jpg|dimensions:width=1920,height=750',
         ];
     }
 
@@ -40,7 +40,7 @@ class CreateCarouselRequest extends BaseRequest
             'image.required' => '圖片是必須的。',
             'image.image' => '圖片必須是有效的圖像文件。',
             'image.mimes' => '圖片格式必須是 jpeg、png、jpg 或 gif。',
-            'image.dimensions' => '圖片尺寸必須是 1900x700 像素。',
+            'image.dimensions' => '圖片尺寸必須是 1920x750 像素。',
         ];
     }
 }

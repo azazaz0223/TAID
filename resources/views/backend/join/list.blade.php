@@ -23,12 +23,15 @@
                         <input type="text" class="form-control" id="en_title"
                             value="{{ $data ? $data->en_title : '' }}">
                     </div>
+                </div>
+
+                <div class="d-flex justify-content-start gap-3 mb-3">
                     <div class="w-auto">
                         <div class="dive_sub">中文大標</div>
                     </div>
+
                     <div class="col">
-                        <input type="text" class="form-control" id="zh_title"
-                            value="{{ $data ? $data->zh_title : '' }}">
+                        <textarea class="form-control search_input easein mb-0" id="zh_title">{{ $data ? $data->zh_title : '' }}</textarea>
                     </div>
                 </div>
 
@@ -46,11 +49,6 @@
                     class="btn btn-secondary border-0 rounded-3 float-end shadow-sm px-3">確認送出</a>
             </div>
 
-            <input type="hidden" id="image2_title" value="{{ $data ? $data->image2_title : '' }}">
-            <input type="hidden" id="image2_content" value="{{ $data ? $data->image2_content : '' }}">
-            <input type="hidden" id="image3_title" value="{{ $data ? $data->image3_title : '' }}">
-            <input type="hidden" id="image3_content" value="{{ $data ? $data->image3_content : '' }}">
-
             <div class="card col-12 rounded-3 bg-white mb-4">
                 <h2 class="fs-5 p-3 fw-bold border-bottom">Join us 圖片設定</h2>
                 <div class="card-body border-bottom d-flex justify-content-between gap-3">
@@ -59,13 +57,13 @@
                             <span class="font12 ps-5 text-black-50 text-danger">點圖可設定詳細內文</span>
                         </label>
                         <div class="col">
-                            <a onclick="showBtn(2)">
-                                <img src="{{ $data ? asset($data->image2) : '' }}">
+                            <a onclick="showBtn(1)">
+                                <img src="{{ $data ? asset($data->image1) : '' }}">
                             </a>
                         </div>
                         <div class="col">
-                            <a onclick="showBtn(3)">
-                                <img src="{{ $data ? asset($data->image3) : '' }}">
+                            <a onclick="showBtn(2)">
+                                <img src="{{ $data ? asset($data->image2) : '' }}">
                             </a>
                         </div>
                     </div>
@@ -88,35 +86,10 @@
                         <form id="update">
                             <div class="row col-12 mb-2 gx-0">
                                 <div class="col-12">
-                                    <div class="dive_sub">標題</div>
-                                </div>
-                                <div class="col">
-                                    <input type="text" name="title" id="modal_title" class="form-control">
-                                </div>
-                            </div>
-                            <div class="row col-12 mb-2 gx-0">
-                                <div class="col-12">
                                     <div class="dive_sub">上傳圖片 / 更改圖片</div>
                                 </div>
                                 <div class="col">
                                     <input type="file" class="form-control" name="image"
-                                        aria-describedby="inputFileAdd" aria-label="Upload">
-                                </div>
-                            </div>
-                            <div class="row col-12 mb-2 gx-0">
-                                <div class="col-12">
-                                    <div class="dive_sub">內文</div>
-                                </div>
-                                <div class="col">
-                                    <textarea name="content" id="modal_content" class="form-control search_input easein mb-0" rows="2"></textarea>
-                                </div>
-                            </div>
-                            <div class="row col-12 mb-2 gx-0">
-                                <div class="col-12">
-                                    <div class="dive_sub">上傳內容圖片 / 更改內容圖片</div>
-                                </div>
-                                <div class="col">
-                                    <input type="file" class="form-control" name="content_image"
                                         aria-describedby="inputFileAdd" aria-label="Upload">
                                 </div>
                             </div>
@@ -201,8 +174,6 @@
 
         function showBtn(id) {
             image_id = id;
-            $("#modal_title").val($("#image" + id + "_title").val());
-            $("#modal_content").val($("#image" + id + "_content").val());
             $("#about3pic").modal("show");
         }
 

@@ -19,7 +19,7 @@ class UpdateCourseRequest extends BaseRequest
             "subtitle" => "required|string",
             "image" => "nullable|image|mimes:jpeg,png,jpg|dimensions:width=1200,height=800",
             "content_text" => "required|string",
-            "content_image" => "nullable|image|mimes:jpeg,png,jpg|dimensions:width=1200,height=800",
+            "content_image" => "nullable|image|mimes:jpeg,png,jpg|dimensions:width=1920,height=750",
             "status" => "required|in:0,1",
             "sort" => "nullable|integer|min:1",
         ];

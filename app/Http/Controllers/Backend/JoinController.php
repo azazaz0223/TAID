@@ -45,36 +45,20 @@ class JoinController extends Controller
 
         if (isset($request['image'])) {
             if ($request->hasFile('image') && $request->file('image')->isValid()) {
-                $image = $this->uploadImageService->uploadImage($request['op'], 'about', $request->file('image'));
-            }
-        }
-
-        if (isset($request['content_image'])) {
-            if ($request->hasFile('content_image') && $request->file('content_image')->isValid()) {
-                $content_image = $this->uploadImageService->uploadImage($request['op'] . "content", 'about', $request->file('content_image'));
+                $image = $this->uploadImageService->uploadImage($request['op'], 'join', $request->file('image'));
             }
         }
 
         switch ($request['op']) {
-            case '2':
+            case '1':
                 if (isset($image)) {
-                    $data['image2'] = $image;
-                }
-                $data['image2_title'] = $request['title'];
-                $data['image2_content'] = $request['content'];
-                if (isset($content_image)) {
-                    $data['image2_content_image'] = $content_image;
+                    $data['image1'] = $image;
                 }
                 break;
 
-            case '3':
+            case '2':
                 if (isset($image)) {
-                    $data['image3'] = $image;
-                }
-                $data['image3_title'] = $request['title'];
-                $data['image3_content'] = $request['content'];
-                if (isset($content_image)) {
-                    $data['image3_content_image'] = $content_image;
+                    $data['image2'] = $image;
                 }
                 break;
         }
