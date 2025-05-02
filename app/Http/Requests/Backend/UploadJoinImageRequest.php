@@ -16,15 +16,12 @@ class UploadJoinImageRequest extends BaseRequest
     {
         $rules = [
             'op' => ['required', 'string'],
-            'title' => ['required', 'string'],
-            'content' => ['required', 'string'],
             'image' => ['required', 'image'],
-            "content_image" => ['nullable', 'image', 'mimes:jpeg,png,jpg'],
         ];
 
         $dimensions = [
-            '1' => 'dimensions:width=1200,height=800',
-            '2' => 'dimensions:width=1200,height=800',
+            '1' => 'dimensions:width=480,height=480',
+            '2' => 'dimensions:width=230,height=230',
         ];
 
         if (isset($dimensions[$this->op])) {
@@ -51,8 +48,8 @@ class UploadJoinImageRequest extends BaseRequest
     private function getDimensionMessage(): string
     {
         $messages = [
-            '1' => '圖片尺寸必須是 1200x800 像素。',
-            '2' => '圖片尺寸必須是 1200x800 像素。',
+            '1' => '圖片尺寸必須是 480x480 像素。',
+            '2' => '圖片尺寸必須是 230x230 像素。',
         ];
 
         return $messages[$this->op] ?? '圖片尺寸不符合要求。';
