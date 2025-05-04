@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="about3pic" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="join2pic" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
@@ -86,7 +86,7 @@
                         <form id="update">
                             <div class="row col-12 mb-2 gx-0">
                                 <div class="col-12">
-                                    <div class="dive_sub">上傳圖片 / 更改圖片</div>
+                                    <div class="dive_sub" id="alert">上傳圖片 / 更改圖片</div>
                                 </div>
                                 <div class="col">
                                     <input type="file" class="form-control" name="image"
@@ -174,7 +174,18 @@
 
         function showBtn(id) {
             image_id = id;
-            $("#about3pic").modal("show");
+            text = '';
+            switch (id) {
+                case 1:
+                    text = '上傳圖片 / 更改圖片 (只接受jpg、png,尺寸建議480*480)';
+                    break;
+
+                case 2:
+                    text = '上傳圖片 / 更改圖片 (只接受jpg、png,尺寸建議230*230)';
+                    break;
+            }
+            $("#alert").text(text);
+            $("#join2pic").modal("show");
         }
 
         function updateImageInfoBtn() {
