@@ -100,7 +100,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">上傳圖片(只接受jpg、png,尺寸建議1920*1080)</label>
+                            <label class="form-label">上傳圖片(只接受jpg、png,尺寸建議1920*750)</label>
                             <input type="file" id="image" class="form-control easein" accept="image/jpeg, image/png"
                                 onchange="reviewImage(this)">
                             <img id="preview_image"class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}" />
@@ -127,7 +127,7 @@
                     var img = $("#preview_image");
                     img.attr('src', e.target.result);
                     img.css({
-                        "height": "800px", // 固定高度
+                        "height": "250px", // 固定高度
                         "width": "auto", // 寬度自動
                         "object-fit": "contain", // 縮放但不變形
                         "display": "block" // 避免下方有空白

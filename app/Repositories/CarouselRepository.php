@@ -8,12 +8,12 @@ class CarouselRepository
 {
     public function findAll()
     {
-        return Carousel::orderByDesc('sort')->paginate(6);
+        return Carousel::orderBy('sort')->paginate(6);
     }
 
     public function findAllForFrontend()
     {
-        return Carousel::where('status', 1)->orderByDesc('sort')->limit(10)->get();
+        return Carousel::where('status', 1)->orderBy('sort')->limit(10)->get();
     }
 
     public function create($request)
