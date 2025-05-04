@@ -15,7 +15,7 @@
             <form id="updateForm">
                 <div class="card-body border-bottom d-flex justify-content-between gap-3">
                     <div class="col-4 card-body fs-6 gray_l rounded-3">
-                        <label class="mb-2">更改LOGO</label>
+                        <label class="mb-2">更改LOGO(只接受png,尺寸建議310*51)</label>
                         <input type="file" name="logo" id="logo" onchange="reviewImage(this)"
                             class="form-control search_input product-hover easein">
                         <img id="logoImg" class="mt-3" src="{{ asset('images/backend/defaultImage.png') }}">
