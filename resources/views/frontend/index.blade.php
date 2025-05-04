@@ -363,7 +363,14 @@
             $("#image").prop("src", $("#course_image" + id).val());
 
             text = $("#course_content" + id).val();
-            formattedText = text.replace(/\n/g, '<br />');
+
+            // 將 http(s) 開頭的網址轉換為超連結
+            let linkedText = text.replace(
+                /(https?:\/\/[^\s]+)/g,
+                '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+            );
+
+            formattedText = linkedText.replace(/\n/g, '<br />');
             $("#content").html(formattedText);
 
             $("#modal").prop("checked", true);
