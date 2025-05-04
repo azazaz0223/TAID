@@ -13,7 +13,7 @@ class CarouselService
 
     public function findAllForFront()
     {
-        return $this->carouselRepository->findAll();
+        return $this->carouselRepository->findAllForFrontend();
     }
 
     public function findAll()
