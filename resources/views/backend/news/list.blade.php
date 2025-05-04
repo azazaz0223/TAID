@@ -172,7 +172,7 @@
                     var img = $("#" + element.id + "Img");
                     img.attr('src', e.target.result);
                     img.css({
-                        "height": "800px", // 固定高度
+                        "height": "250px", // 固定高度
                         "width": "auto", // 寬度自動
                         "object-fit": "contain", // 縮放但不變形
                         "display": "block" // 避免下方有空白
