@@ -269,7 +269,9 @@
                                 <input type="text" class="form-control" id="contactName" placeholder="姓名">
                             </div>
                             <div class="col-md-6 col-xs-12 p-2">
-                                <input type="text" class="form-control" id="contactPhone" placeholder="聯絡電話">
+                                <input type="text" class="form-control" id="contactPhone" placeholder="聯絡電話"
+                                    maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                    pattern="^09\d{8}$">
                             </div>
 
                             <tr>

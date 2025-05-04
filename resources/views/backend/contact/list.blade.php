@@ -48,7 +48,7 @@
                         <div class="dive_sub">聯絡電話</div>
                     </div>
                     <div class="col">
-                        <input type="text" name="phone" class="form-control" value="{{ request('email') }}">
+                        <input type="text" name="phone" class="form-control" value="{{ request('phone') }}">
                     </div>
                 </div>
                 <button type="button" onclick="selectBtn()"

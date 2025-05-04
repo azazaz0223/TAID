@@ -36,8 +36,8 @@ class ContactRepository
             $query->where('name', 'like', $request->name . '%');
         }
 
-        if ($request->has('email')) {
-            $query->where('email', 'like', $request->email . '%');
+        if ($request->has('phone')) {
+            $query->where('phone', 'like', $request->phone . '%');
         }
 
         return $query->orderBy('id', 'desc')->paginate(20)->appends($request->query());
