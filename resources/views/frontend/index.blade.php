@@ -35,7 +35,6 @@
 
     {{-- Responsive Stylesheet multipurpose --}}
     <link rel="stylesheet" href="{{ asset('css/frontend/responsive-multipurpose.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -332,6 +331,8 @@
         });
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     {{-- Back To Top --}}
     <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
 
@@ -403,7 +404,26 @@
                         Swal.fire({
                             title: '成功！',
                             icon: 'success',
-                            timer: 3000
+                            timer: 3000,
+                            didOpen: () => {
+                                const swalTitle = document.querySelector('.swal2-title');
+                                if (swalTitle) {
+                                    swalTitle.style.border = 'none';
+                                    swalTitle.style.borderBottom = 'none';
+                                    swalTitle.style.background = 'none';
+                                }
+
+                                // 清除 ::before 和 ::after 效果（如果是用 CSS Pseudo 寫的線）
+                                const style = document.createElement('style');
+                                style.textContent = `
+                                    .swal2-title::before,
+                                    .swal2-title::after {
+                                        display: none !important;
+                                        content: none !important;
+                                    }
+                                `;
+                                document.head.appendChild(style);
+                            }
                         }).then((result) => {
                             location.reload();
                         });
