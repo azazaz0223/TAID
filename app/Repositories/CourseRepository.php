@@ -8,12 +8,15 @@ class CourseRepository
 {
     public function findAllForFront()
     {
-        return Course::where('status', 1)->limit(10)->orderByDesc('sort')->get();
+        return Course::where('status', 1)
+            ->orderBy('sort')
+            ->limit(10)
+            ->get();
     }
 
     public function findAll()
     {
-        return Course::orderByDesc('sort')->paginate(6);
+        return Course::orderBy('sort')->paginate(6);
     }
 
     public function create($request)

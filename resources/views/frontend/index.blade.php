@@ -230,7 +230,7 @@
                         </div>
                         <input type="hidden" id="course_title{{ $course->id }}" value="{{ $course->title }}">
                         <input type="hidden" id="course_content{{ $course->id }}"
-                            value="{!! nl2br(e($course->content_text)) !!}">
+                            value="{{ $course->content_text }}">
                         <input type="hidden" id="course_image{{ $course->id }}"
                             value="{{ asset($course->content_image) }}">
                     @endforeach

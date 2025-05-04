@@ -57,7 +57,7 @@
 
                 <div class="card-body border-bottom d-flex justify-content-between gap-3">
                     <div class="col-4 card-body fs-6 gray_l rounded-3">
-                        <label class="mb-2">上傳課程圖片</label>
+                        <label class="mb-2">上傳課程圖片(只接受jpg、png,尺寸建議1200*800)</label>
                         <div class="c-mainCard__item">
                             <div class="l-upload l-upload--notSpace">
                                 <div class="card-body fs-6 gray_l rounded-3">
@@ -89,7 +89,7 @@
 
                 <div class="card-body border-bottom d-flex justify-content-between gap-3">
                     <div class="col-4 card-body fs-6 gray_l rounded-3">
-                        <label class="mb-2">上傳項目內容圖</label>
+                        <label class="mb-2">上傳課程內容圖(只接受jpg、png,尺寸建議1200*800)</label>
                         <div class="c-mainCard__item">
                             <div class="l-upload l-upload--notSpace">
                                 <div class="card-body fs-6 gray_l rounded-3">
@@ -127,7 +127,7 @@
                     var img = $("#" + element.id + "Img");
                     img.attr('src', e.target.result);
                     img.css({
-                        "height": "800px", // 固定高度
+                        "height": "250px", // 固定高度
                         "width": "auto", // 寬度自動
                         "object-fit": "contain", // 縮放但不變形
                         "display": "block" // 避免下方有空白
