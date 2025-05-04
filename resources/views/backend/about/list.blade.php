@@ -103,7 +103,7 @@
                             </div>
                             <div class="row col-12 mb-2 gx-0">
                                 <div class="col-12">
-                                    <div class="dive_sub">上傳圖片 / 更改圖片</div>
+                                    <div class="dive_sub" id="alert1">上傳圖片 / 更改圖片</div>
                                 </div>
                                 <div class="col">
                                     <input type="file" class="form-control" name="image"
@@ -120,7 +120,7 @@
                             </div>
                             <div class="row col-12 mb-2 gx-0">
                                 <div class="col-12">
-                                    <div class="dive_sub">上傳內容圖片 / 更改內容圖片</div>
+                                    <div class="dive_sub" id="alert2">上傳內容圖片 / 更改內容圖片</div>
                                 </div>
                                 <div class="col">
                                     <input type="file" class="form-control" name="content_image"
@@ -208,6 +208,23 @@
 
         function showBtn(id) {
             image_id = id;
+            text1 = '';
+            text2 = '上傳內容圖片 / 更改內容圖片 (只接受jpg、png,尺寸建議1200*800)';
+            switch (id) {
+                case 1:
+                    text1 = '上傳圖片 / 更改圖片 (只接受jpg、png,尺寸建議800*1200)';
+                    break;
+
+                case 2:
+                    text1 = '上傳圖片 / 更改圖片 (只接受jpg、png,尺寸建議1200*800)';
+                    break;
+
+                case 3:
+                    text1 = '上傳圖片 / 更改圖片 (只接受jpg、png,尺寸建1200*800)';
+                    break;
+            }
+            $("#alert1").text(text1);
+            $("#alert2").text(text2);
             $("#modal_title").val($("#image" + id + "_title").val());
             $("#modal_content").val($("#image" + id + "_content").val());
             $("#about3pic").modal("show");

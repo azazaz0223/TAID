@@ -19,7 +19,7 @@ class UploadAboutImageRequest extends BaseRequest
             'title' => ['required', 'string'],
             'content' => ['required', 'string'],
             'image' => ['required', 'image'],
-            "content_image" => ['nullable', 'image', 'mimes:jpeg,png,jpg'],
+            "content_image" => ['nullable', 'image', 'mimes:jpeg,png,jpg', 'dimensions:width=1200,height=800'],
         ];
 
         $dimensions = [
@@ -43,9 +43,22 @@ class UploadAboutImageRequest extends BaseRequest
     public function messages(): array
     {
         return [
+            'op.required' => '操作參數為必填。',
+            'op.string' => '操作參數必須是文字格式。',
+
+            'title.required' => '標題為必填。',
+            'title.string' => '標題必須是文字格式。',
+
+            'content.required' => '內文為必填。',
+            'content.string' => '內文必須是文字格式。',
+
             'image.required' => '請上傳圖片。',
             'image.image' => '檔案必須是圖片格式。',
             'image.dimensions' => $this->getDimensionMessage(),
+
+            'content_image.image' => '內容圖片必須是圖片格式。',
+            'content_image.mimes' => '內容圖片格式僅限 jpeg、png、jpg。',
+            'content_image.dimensions' => '內容圖片尺寸必須為 1200x800 像素。',
         ];
     }
 
