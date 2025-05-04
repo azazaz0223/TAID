@@ -170,7 +170,7 @@
                                     <input type="hidden" id="news_title{{ $news->id }}"
                                         value="{{ $news->title }}">
                                     <input type="hidden" id="news_content{{ $news->id }}"
-                                        value="{!! nl2br(e($news->content_text)) !!}">
+                                        value="{{ $news->content_text }}">
                                     <input type="hidden" id="news_image{{ $news->id }}"
                                         value="{{ asset($news->content_image) }}">
                                 </div>
@@ -352,7 +352,14 @@
             $("#image").prop("src", $("#news_image" + id).val());
 
             text = $("#news_content" + id).val();
-            formattedText = text.replace(/\n/g, '<br />');
+
+            // 將 http(s) 開頭的網址轉換為超連結
+            let linkedText = text.replace(
+                /(https?:\/\/[^\s]+)/g,
+                '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+            );
+
+            formattedText = linkedText.replace(/\n/g, '<br />');
             $("#content").html(formattedText);
 
             $("#modal").prop("checked", true);
