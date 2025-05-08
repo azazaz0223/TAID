@@ -199,13 +199,21 @@
                     <div class="col-md-7 col-lg-6" data-aos="fade-left" data-aos-delay="400"
                         data-aos-duration="800">
                         <div class="featured-img">
-                            <a href="{{ $join->image1_url ?? '#' }}" target="_blank">
+                            @if (!empty($join->image1_url))
+                                <a href="{{ $join->image1_url ?? '#' }}" target="_blank">
+                                    <img class="featured-big" src="{{ asset($join->image1) }}">
+                                </a>
+                            @else
                                 <img class="featured-big" src="{{ asset($join->image1) }}">
-                            </a>
+                            @endif
 
-                            <a href="{{ $join->image2_url ?? '#' }}" target="_blank">
+                            @if (!empty($join->image1_url))
+                                <a href="{{ $join->image2_url ?? '#' }}" target="_blank">
+                                    <img class="featured-small" src="{{ asset($join->image2) }}">
+                                </a>
+                            @else
                                 <img class="featured-small" src="{{ asset($join->image2) }}">
-                            </a>
+                            @endif
                         </div>
                     </div>
                 @endforeach
