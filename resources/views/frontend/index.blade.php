@@ -199,8 +199,13 @@
                     <div class="col-md-7 col-lg-6" data-aos="fade-left" data-aos-delay="400"
                         data-aos-duration="800">
                         <div class="featured-img">
-                            <img class="featured-big" src="{{ asset($join->image1) }}">
-                            <img class="featured-small" src="{{ asset($join->image2) }}">
+                            <a href="{{ $join->image1_url ?? '#' }}" target="_blank">
+                                <img class="featured-big" src="{{ asset($join->image1) }}">
+                            </a>
+
+                            <a href="{{ $join->image2_url ?? '#' }}" target="_blank">
+                                <img class="featured-small" src="{{ asset($join->image2) }}">
+                            </a>
                         </div>
                     </div>
                 @endforeach

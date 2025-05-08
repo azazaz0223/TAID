@@ -14,6 +14,8 @@ class Join extends Model
         'en_title',
         'content',
         'image1',
+        'image1_url',
         'image2',
+        'image2_url'
     ];
 }

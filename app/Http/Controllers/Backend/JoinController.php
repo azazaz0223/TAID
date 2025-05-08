@@ -53,12 +53,21 @@ class JoinController extends Controller
             case '1':
                 if (isset($image)) {
                     $data['image1'] = $image;
+                    $data['image1_url'] = $request['image_url'];
+                }
+
+                if (!empty($request['image_url'])) {
+                    $data['image1_url'] = $request['image_url'];
                 }
                 break;
 
             case '2':
                 if (isset($image)) {
                     $data['image2'] = $image;
+                }
+
+                if (!empty($request['image_url'])) {
+                    $data['image2_url'] = $request['image_url'];
                 }
                 break;
         }

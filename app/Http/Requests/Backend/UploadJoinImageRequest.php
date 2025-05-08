@@ -16,7 +16,8 @@ class UploadJoinImageRequest extends BaseRequest
     {
         $rules = [
             'op' => ['required', 'string'],
-            'image' => ['required', 'image'],
+            'image' => ['nullable', 'image'],
+            'image_url' => ['nullable', 'url'],
         ];
 
         $dimensions = [
@@ -39,9 +40,9 @@ class UploadJoinImageRequest extends BaseRequest
     public function messages(): array
     {
         return [
-            'image.required' => '請上傳圖片。',
             'image.image' => '檔案必須是圖片格式。',
             'image.dimensions' => $this->getDimensionMessage(),
+            'image_url.url' => '圖片連結必須為正確的網址。'
         ];
     }
 

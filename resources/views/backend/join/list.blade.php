@@ -60,11 +60,13 @@
                             <a onclick="showBtn(1)">
                                 <img src="{{ $data ? asset($data->image1) : '' }}">
                             </a>
+                            <input type="hidden" id="image1_url" value="{{ $data ? $data->image1_url : '' }}">
                         </div>
                         <div class="col">
                             <a onclick="showBtn(2)">
                                 <img src="{{ $data ? asset($data->image2) : '' }}">
                             </a>
+                            <input type="hidden" id="image2_url" value="{{ $data ? $data->image2_url : '' }}">
                         </div>
                     </div>
                 </div>
@@ -91,6 +93,15 @@
                                 <div class="col">
                                     <input type="file" class="form-control" name="image"
                                         aria-describedby="inputFileAdd" aria-label="Upload">
+                                </div>
+                            </div>
+
+                            <div class="row col-12 mb-2 gx-0">
+                                <div class="col-12">
+                                    <div class="dive_sub">圖片連結</div>
+                                </div>
+                                <div class="col">
+                                    <input type="text" id="image_url" name="image_url" class="form-control">
                                 </div>
                             </div>
                         </form>
@@ -178,10 +189,12 @@
             switch (id) {
                 case 1:
                     text = '上傳圖片 / 更改圖片 (只接受jpg、png,尺寸建議480*480)';
+                    $('#image_url').val($("#image1_url").val());
                     break;
 
                 case 2:
                     text = '上傳圖片 / 更改圖片 (只接受jpg、png,尺寸建議230*230)';
+                    $('#image_url').val($("#image2_url").val());
                     break;
             }
             $("#alert").text(text);
